@@ -1,10 +1,11 @@
 <?php
-file_put_contents("/tmp/" . date('Y-m-d') . ".log", DATE_ISO8601, FILE_APPEND);
+file_put_contents(__DIR__ . "/" . date('Y-m-d') . ".log", date(DATE_ISO8601) . " :: ", FILE_APPEND);
 
 $access_token = 'DBUa8Nw4ulhAg1FuFf6aPtULPidvXFg7xH5gehgkIwSUkrzelRRgkZ2h+Y66Qy1byiByGgSLTgLYL3vT6MECxHrkLHZETxL4hoPZ6PwM5k62UnfrWorMpmvmozdxzGDuDZUvWfPvOWolWSday7dtIgdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
 $content = file_get_contents('php://input');
+file_put_contents(__DIR__ . "/" . date('Y-m-d') . ".log", $content . " -> " . PHP_EOL, FILE_APPEND);			
 
 // Parse JSON
 $events = json_decode($content, true);
@@ -34,7 +35,7 @@ if (!is_null($events['events'])) {
 				'messages' => [$messages],
 			];
 			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $acess_token);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
 			
 			$ch = curl_init($url);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -45,7 +46,8 @@ if (!is_null($events['events'])) {
 			$result = curl_exec($ch);
 			curl_close($ch);
 
-			echo $result . "\r\n";			
+			echo $result . "\r\n";
+			file_put_contents(__DIR__ . "/" . date('Y-m-d') . ".log", $result . PHP_EOL, FILE_APPEND);			
 		}
 	}
 }
