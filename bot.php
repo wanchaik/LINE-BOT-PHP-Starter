@@ -1,4 +1,6 @@
 <?php
+file_put_contents(date('Y-m-d') . '.log', DATE_ISO8601);
+
 $access_token = 'DBUa8Nw4ulhAg1FuFf6aPtULPidvXFg7xH5gehgkIwSUkrzelRRgkZ2h+Y66Qy1byiByGgSLTgLYL3vT6MECxHrkLHZETxL4hoPZ6PwM5k62UnfrWorMpmvmozdxzGDuDZUvWfPvOWolWSday7dtIgdB04t89/1O/w1cDnyilFU=';
 
 // Get POST body content
