@@ -1,5 +1,5 @@
 <?php
-file_put_contents(date('Y-m-d') . '.log', DATE_ISO8601);
+file_put_contents(__DIR__ . "/" . date('Y-m-d') . ".log", DATE_ISO8601, FILE_APPEND);
 
 $access_token = 'DBUa8Nw4ulhAg1FuFf6aPtULPidvXFg7xH5gehgkIwSUkrzelRRgkZ2h+Y66Qy1byiByGgSLTgLYL3vT6MECxHrkLHZETxL4hoPZ6PwM5k62UnfrWorMpmvmozdxzGDuDZUvWfPvOWolWSday7dtIgdB04t89/1O/w1cDnyilFU=';
 
@@ -50,4 +50,4 @@ if (!is_null($events['events'])) {
 	}
 }
 
-echo "OK";
+echo "OK ..";
