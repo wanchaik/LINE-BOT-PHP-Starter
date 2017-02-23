@@ -22,6 +22,31 @@ if (!is_null($events['events'])) {
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
+			switch ($text) {
+				case '1':
+					$text = "เรามีแต่พาสเวิร์ดเข้าสู่อินเตอร์เน็ต แต่ไม่มีแอคเซสเข้าสู่หัวใจเธอเลย";
+					break;
+				
+				case '2':
+					$text = "รับบริจาคความห่วงใย ให้ผู้ประสบภัยความเหงา";
+					break;
+
+				case '3':
+					$text = "ฝนตกต้องเก็บผ้า แต่ถ้าเขาไม่เห็นค่าต้องเก็บใจ";
+					break;
+
+				case '4':
+					$text = "ลานจอดรถ ก็เหมือนความรักที่ไหนว่างก็..เสียบ";
+					break;
+
+				case '5':
+					$text = "ซานตาคลอสมาพร้อมกวาง แต่ถ้าไม่อยากอ้างว้าง ให้มาพร้อมเรา";
+					break;
+				default:
+					$text .= "\r\nPlease select digit [1-5] : ";
+					break;
+			}
+
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
